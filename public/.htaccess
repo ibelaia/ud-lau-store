@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Jika request bukan file/folder yang benar-benar ada, arahkan ke index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Cegah akses langsung ke file .env atau folder sensitif lewat browser
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>

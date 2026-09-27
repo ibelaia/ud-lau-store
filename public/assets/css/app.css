@@ -1,0 +1,537 @@
+:root {
+    --primary: #107c41;
+    --primary-hover: #0c6133;
+    --primary-light: #e8f5e9;
+    --accent: #ff6f00;
+    --dark: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --bg-page: #f8fafc;
+    --card-bg: #ffffff;
+    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--dark);
+    line-height: 1.4;
+    padding-bottom: 72px; /* Ruang aman untuk bottom navigation */
+    
+    /* Tambahan agar footer selalu terdorong ke paling bawah */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kontainer Halaman Utama */
+.app-content {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    
+    /* Fleksibel mendorong footer ke dasar halaman */
+    flex: 1 0 auto;
+}
+
+/* Footer Aplikasi */
+.app-footer {
+    max-width: 480px;
+    width: 100%;
+    margin: auto auto 0; /* Auto margin atas akan mendorong footer ke dasar */
+    text-align: center;
+    padding: 1.5rem 1rem 0.5rem;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+/* Header Aplikasi */
+.app-header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
+    width: 100%;             /* Wajib 100% agar memenuhi container mobile */
+    max-width: 480px;
+    margin: 0 auto;          /* Otomatis center di tengah layar */
+    padding: 0.75rem 1rem 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    align-self: center;      /* Kunci posisi tepat di tengah container flex body */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.65rem;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.brand-name {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--primary);
+    display: block;
+    line-height: 1.1;
+}
+
+.brand-tagline {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.action-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    text-decoration: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f1f5f9;
+}
+
+.badge-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #fff;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 0.35rem 0.4rem 0.35rem 0.75rem;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(16, 124, 65, 0.1);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.88rem;
+    color: var(--dark);
+    font-family: inherit;
+}
+
+.search-box button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Kontainer Halaman */
+.app-content {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Banner Promo */
+.banner-carousel {
+    margin-bottom: 1.5rem;
+}
+
+.promo-card {
+    background: linear-gradient(135deg, #107c41 0%, #0d5f32 100%);
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 16px rgba(16, 124, 65, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-card::after {
+    content: '🛒';
+    position: absolute;
+    right: -15px;
+    bottom: -15px;
+    font-size: 5rem;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.promo-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.promo-card h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+}
+
+.promo-card p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.promo-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.promo-features span {
+    font-size: 0.72rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+/* Kategori Horisontal */
+.home-section {
+    margin-bottom: 1.75rem;
+}
+
+.section-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+.section-title-wrap h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.section-subtitle {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.link-more {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.category-scroll {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    scrollbar-width: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-pill {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.85rem;
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.category-pill.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* Grid Kartu Produk */
+.product-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+}
+
+.product-item-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.65rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.product-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f1f5f9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+}
+
+.product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.thumb-icon {
+    font-size: 1.6rem;
+}
+
+.thumb-store {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+}
+
+.badge-tag {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.tag-featured {
+    background: #ff6f00;
+    color: #fff;
+}
+
+.tag-new {
+    background: var(--primary);
+    color: #fff;
+}
+
+.product-category {
+    font-size: 0.68rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.product-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0.2rem 0 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.3em;
+    line-height: 1.35;
+}
+
+.price-stock-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.stock-pill {
+    font-size: 0.68rem;
+    color: #059669;
+    background: #d1fae5;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.stock-pill.low {
+    color: #d97706;
+    background: #fef3c7;
+}
+
+.btn-quick-add {
+    width: 100%;
+    padding: 0.45rem;
+    background: #f1f5f9;
+    color: var(--primary);
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-quick-add:hover:not(:disabled) {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.btn-quick-add:disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+/* Footer */
+.app-footer {
+    max-width: 480px;
+    margin: 2rem auto 1rem;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-slogan {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.25rem;
+}
+
+.footer-copy {
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+/* Bottom Navigation Ala Aplikasi */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.45rem 0 0.35rem;
+    z-index: 100;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.68rem;
+    font-weight: 600;
+    flex: 1;
+    transition: color 0.15s;
+}
+
+.nav-item svg {
+    transition: transform 0.15s;
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-item.active svg {
+    stroke: var(--primary);
+    transform: scale(1.1);
+}
